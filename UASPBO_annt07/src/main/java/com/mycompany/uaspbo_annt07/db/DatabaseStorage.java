@@ -23,7 +23,6 @@ public class DatabaseStorage implements DataStorage {
             connection = DriverManager.getConnection("jdbc:sqlite:" + databasePath);
             createNotesTable();
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
         }
     }
 
@@ -39,7 +38,6 @@ public class DatabaseStorage implements DataStorage {
             statement.setString(1, note);
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 
@@ -51,7 +49,6 @@ public class DatabaseStorage implements DataStorage {
                 notes.add(resultSet.getString("note"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         }
         return notes;
     }
@@ -62,7 +59,6 @@ public class DatabaseStorage implements DataStorage {
             statement.setString(1, note);
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }

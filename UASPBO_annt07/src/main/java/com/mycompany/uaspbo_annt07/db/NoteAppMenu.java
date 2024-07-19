@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class NoteAppMenu {
-    private NoteService noteService;
-    private Scanner scanner;
+    private final NoteService noteService;
+    private final Scanner scanner;
 
     public NoteAppMenu(String databasePath) {
         noteService = new NoteService(new DatabaseStorage(databasePath));
@@ -22,20 +22,11 @@ public class NoteAppMenu {
             showMenu();
             int choice = getUserChoice();
             switch (choice) {
-                case 1:
-                    addNote();
-                    break;
-                case 2:
-                    showNotes();
-                    break;
-                case 3:
-                    deleteNote();
-                    break;
-                case 4:
-                    exit = true;
-                    break;
-                default:
-                    System.out.println("Pilihan tidak valid, coba lagi.");
+                case 1 -> addNote();
+                case 2 -> showNotes();
+                case 3 -> deleteNote();
+                case 4 -> exit = true;
+                default -> System.out.println("Pilihan tidak valid, coba lagi.");
             }
         }
     }

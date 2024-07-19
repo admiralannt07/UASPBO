@@ -6,9 +6,9 @@ package com.mycompany.uaspbo_annt07.db;
 
 import java.util.List;
 
-public class NoteService {
-    private DataStorage storage;
-    private List<String> notes;
+public final class NoteService {
+    private final DataStorage storage;
+    private final List<String> notes;
 
     public NoteService(DataStorage storage) {
         this.storage = storage;
@@ -25,7 +25,6 @@ public class NoteService {
     }
 
     public void deleteNote(String note) {
-        notes.remove(note);
         storage.deleteData(note);
     }
 
